@@ -1,9 +1,23 @@
 html {
-  background-image: url("/Phase1/Project2/Mock_Background.jpeg");
+  background-image: url("https://raw.githubusercontent.com/jimboden1/2058544_jesse_imboden_MEAN_stack/master/Phase1/Project2/Mock_Background.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
   height: 100%;
   overflow: auto;
+}
+
+* {
+  text-align: center;
+}
+
+head {
+  margin: 100%;
+  position: sticky;
+}
+
+p {
+  color: white;
+  background-color: rgba(10, 10, 10, 0.6);
 }
