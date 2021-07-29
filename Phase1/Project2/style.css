@@ -1,0 +1,9 @@
+html {
+  background-image: url("/Phase1/Project2/Mock_Background.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  overflow: auto;
+}
