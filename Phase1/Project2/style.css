@@ -13,11 +13,13 @@ html {
 }
 
 head {
-  margin: 100%;
   position: sticky;
 }
 
 p {
   color: white;
   background-color: rgba(10, 10, 10, 0.6);
+  position: sticky;
+  top: 0;
+  width: 100%;
 }
