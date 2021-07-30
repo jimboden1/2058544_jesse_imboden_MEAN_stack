@@ -6,20 +6,51 @@ html {
   background-attachment: fixed;
   height: 100%;
   overflow: auto;
+  margin: 0px;
+  padding: 0px;
 }
 
 * {
   text-align: center;
 }
 
-head {
-  position: sticky;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-p {
+h1 {
   color: white;
   background-color: rgba(10, 10, 10, 0.6);
   position: sticky;
+  margin: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   top: 0;
   width: 100%;
+}
+
+.main {
+  color: white;
+  margin: 2%;
+  padding: 5%;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 25px;
+  font-size: 20px;
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.6);
+  display: inline;
+  margin: 0px;
+  top: 0;
+  width: 100%;
+}
+
+footer a {
+  padding: 10px;
+}
+
+a {
+  color: gray;
 }
