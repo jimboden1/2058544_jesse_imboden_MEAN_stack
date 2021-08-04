@@ -16,11 +16,11 @@ function checkScreen(){
 }
 
 function printTable(){
-    result="<table><tr><th>Client</th><th>Project Name</th><th>Budget</th></tr>";
+    document.write("<table><tr><th>Client</th><th>Project Name</th><th>Budget</th></tr>");
     for(project in projects) {
-        result+"<tr><th>"+project.client+"</th><th>"+project.name+"</th><th>"+project.budget+"</th></tr>";
+        document.write("<tr><th>"+project.client+"</th><th>"+project.name+"</th><th>"+project.budget+"</th></tr>");
     };
-    return result+"</table>";
+    document.write("</table>");
 }
 
 function JsonSave(){
