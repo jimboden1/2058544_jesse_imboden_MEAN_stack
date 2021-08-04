@@ -29,7 +29,7 @@ function checkScreen(){
 }
 
 function printTable(){
-    document.write("<table><tr><th>Client</th><th>Project Name</th><th>Budget</th></tr>");
+    document.write("<table><tr><th>Client Name</th><th>Project Name</th><th>Budget</th></tr>");
     try{
         var projects=JSON.parse(sessionStorage.getItem("JesseImbodenJSONProjects"))
         var total = 0;
