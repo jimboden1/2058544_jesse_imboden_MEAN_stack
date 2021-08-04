@@ -1,14 +1,27 @@
-var projects = [];
 
-function project(client, name, budget){
-    this.client=client;
-    this.name=name;
-    this.budget=budget;
-}
 
-function addProject(client, name, budget){
-    projects.push(new project(client,name,budget))
-    JsonSave()
+
+function addProject(){
+    var c = document.getElementById("client").value;
+    var n = document.getElementById("name").value;
+    var b = document.getElementById("budget").value;
+    var project= {
+        client:c,
+        name:n,
+        budget:b
+    }
+    try {
+        if(sessionStorage.getItem("JesseImbodenJSONProjects")!=null){
+            var projects = JSON.parse(sessionStorage.getItem("JesseImbodenJSONProjects"));
+        }
+        else{
+            var projects = [];
+        }
+    } catch (error) {
+        var projects = [];
+    }
+    projects.push(project);
+    JsonSave(projects);
 }
 
 function checkScreen(){
@@ -17,12 +30,20 @@ function checkScreen(){
 
 function printTable(){
     document.write("<table><tr><th>Client</th><th>Project Name</th><th>Budget</th></tr>");
-    for(project in projects) {
-        document.write("<tr><th>"+project.client+"</th><th>"+project.name+"</th><th>"+project.budget+"</th></tr>");
-    };
-    document.write("</table>");
+    try{
+        var projects=JSON.parse(sessionStorage.getItem("JesseImbodenJSONProjects"))
+        var total = 0;
+        for(project in projects) {
+            document.write("<tr><th>"+projects[project].client+"</th><th>"+projects[project].name+"</th><th>"+projects[project].budget+"</th></tr>");
+            total+=Number(projects[project].budget);
+        };
+        document.write("<tr><th>total</th><th>--------></th><th>"+total+"</th></tr></table>");
+    }
+    catch(error){
+        console.log("An error has occured")
+    }
 }
 
-function JsonSave(){
-    sessionStorage.setItem("JesseImbodenJSONProjects",JSON.parse(JSON.stringify(projects)))
+function JsonSave(projects){
+    sessionStorage.setItem("JesseImbodenJSONProjects",JSON.stringify(projects));
 }
