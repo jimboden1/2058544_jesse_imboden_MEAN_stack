@@ -1,3 +1,28 @@
 * {
+  width: max-content;
+  block-size: fit-content;
   text-align: center;
+  font-size: 110%;
+  max-width: 100%;
+  margin: 0 auto !important;
+  float: none !important;
+}
+
+#main {
+  background-color: aquamarine;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  width: max-content;
+  block-size: fit-content;
+  border-radius: 20px;
+}
+
+table,
+th,
+tr {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 15px;
 }
