@@ -7,23 +7,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Blog</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
+    <script src="scripts.js"></script>
 </head>
 
 <body>
-    <div class="row">
+    <div class="row bg-dark text-white">
         <div class="col">
-            <br/><br/><h1 class="text-center">My Blog</h1><br/><br/>
+            <br/><br/><h1 class="text-center">Add a New Blog</h1><br/><br/>
         </div>
     </div>
-    <div class="row bg-light">
-        <div class="container-fluid position-sticky">
+    <div class="row sticky-top bg-light">
+        <div class="container-fluid">
             <a class="col" href="#">Add Blog</a>
-            <a class="col">Home</a>
-            <a class="col">About Us</a>
+            <a class="col" href="index.html">Home</a>
+            <a class="col" href="about.html">About Us</a>
             <a class="col" href="mailto: jesse.imboden@tcs.com">Contact Us</a>
         </div>
     </div>
+    <div class="text-center bg-info">
+        <br/>
+        <br/>
+        <form>
+            <lable>Title:</lable>
+            <input id="title" type="text" value="New Blog">
+            <br/>
+            <br/>
+            <label>What's on your mind?</label>
+            <br/>
+            <textarea id="content" cols="150" rows="50"></textarea>
+            <br>
+            <br>
+            <img src="" id="linkedImage">
+            <br/>
+            <br/>
+            <label>Add a picture:</label>
+            <input id="picUrl" type="url">
+            <input type="button" value="Update" class="btn btn-primary" onClick="changeImg()">
+            <br/>
+            <br/>
+            <input type="button" value="Submit Blog" class="btn btn-primary" onClick="addBlog()">
+        </form>
+        <br/>
+        <br/>
+    </div>
 </body>
-<script src="scripts.js"></script>
 </html>

@@ -7,23 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Blog</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
+    <script src="scripts.js"></script>
 </head>
 
-<body>
+<body class="bg-info">
     <div class="row bg-dark text-white">
         <div class="col">
             <br/><br/><h1 class="text-center">My Blog</h1><br/><br/>
         </div>
     </div>
-    <div class="row bg-light">
-        <div class="container-fluid position-sticky">
-            <a class="col">Add Blog</a>
+    <div class="row sticky-top bg-light">
+        <div class="container-fluid ">
+            <a class="col" href="add.html">Add Blog</a>
             <a class="col" href="#">Home</a>
-            <a class="col">About Us</a>
+            <a class="col" href="about.html">About Us</a>
             <a class="col" href="mailto: jesse.imboden@tcs.com">Contact Us</a>
         </div>
     </div>
+    <div id="main">
+    </div>
+    <script>displayBlogs()</script>
 </body>
-<script src="scripts.js"></script>
 </html>
