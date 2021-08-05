@@ -36,9 +36,9 @@ function displayBlogs(){
 function displayBlogPart(blog){
     let img = "<img src="+ blog.picURL+" class=\"img-thumbnail\">"
     if(blog.picURL!==""){
-        return "<div class=\"col-4 mg-2 bg-white\">"+img+
+        return "<div class=\"col-4 mg-2 bg-white\">"+
         "<h3>"+blog.title+"</h3><br/>"+
-        "<p>"+blog.content+"</p>"+
+        "<p>"+blog.content+"</p>"+img+
         "</div>"
     }
     else{
