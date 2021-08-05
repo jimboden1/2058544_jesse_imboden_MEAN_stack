@@ -26,11 +26,11 @@ function displayBlogs(){
     catch (error) {
         var blogs = defaultBlogs;
     }
-    var result = "<div class=\"row mg-2 text-center\">"
+    var result = "<div class=\"row mg-5 text-center bg-info\"><div class=\"col-1\"></div><div class=\"row col-10 text-center bg-white border rounded\">"
     for(b in blogs){
         result += displayBlogPart(blogs[b]);
     }
-    document.getElementById("main").innerHTML = result+"</div>"
+    document.getElementById("main").innerHTML = result+"<div class=\"col-1\"></div></div>"
 }
 
 function displayBlogPart(blog){
