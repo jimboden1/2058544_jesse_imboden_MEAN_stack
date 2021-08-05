@@ -34,7 +34,7 @@
             <br/>
             <label>What's on your mind?</label>
             <br/>
-            <textarea id="content" cols="150" rows="50"></textarea>
+            <textarea id="content" cols="150" rows="20"></textarea>
             <br>
             <br>
             <img src="" id="linkedImage">
@@ -45,10 +45,13 @@
             <input type="button" value="Update" class="btn btn-primary" onClick="changeImg()">
             <br/>
             <br/>
-            <input type="button" value="Submit Blog" class="btn btn-primary" onClick="addBlog()">
+            <input type="button" value="Submit Blog" class="btn btn-primary" onClick="addBlog(),displayBlogs()">
         </form>
         <br/>
         <br/>
+    </div>
+    <div id="main">
+        <script>displayBlogs()</script>
     </div>
 </body>
 </html>
