@@ -38,14 +38,14 @@ var shop:Array<item> = [new item("pants",40), new item("shirts", 20),
 
 
 function displayCheckout(){
-    let result:string =`<h1 class="border-dark rounded">Checkout</h1><div class="text-left"><a onClick="displayShop()">Shop</a></div>
+    let result:string =`<h1 class="border-dark rounded">Checkout</h1><div><a onClick="displayShop()">Shop</a></div>
     <div class="row text-center">
     <div class=col-1></div><div class=col-4><h4 >Item Name</h4></div><div class=col-4><h4>Price</h4></div><h4 class="col-2">Quantity</h4><div class=col-1></div>
     <div class=col-1></div>`;
     for(let i of cart){
-        result+=`<h4 class="col-4 bg-secondary">${i.name}</h4>
-        <h4 class="col-4 bg-secondary">$${i.cost}</h4>
-        <h4 class="col-2 bg-secondary">${i.quantity}</h4>
+        result+=`<h4 class="col-4 bg-light">${i.name}</h4>
+        <h4 class="col-4 bg-light">$${i.cost}</h4>
+        <h4 class="col-2 bg-light">${i.quantity}</h4>
         <div class=col-1></div><div class=col-1></div>`
     }
     document.getElementById("display").innerHTML=result+`</div><h2>Total Price: $${total}</h2>`;
@@ -54,10 +54,10 @@ function displayCheckout(){
 
 function displayShop(){
     let result=`<h1>Shop</h1>
-    <div class="text-left"><a onClick="displayCheckout()">Checkout</a><p></p></div>
+    <div><a onClick="displayCheckout()">Checkout</a><p></p></div>
     <div class="row text-center"><div class="col-2"></div>`;
     for(let i in shop){
-        result+=`<div class="col-4 bg-secondary"><h4>${shop[i].name}</h4>
+        result+=`<div class="col-4 bg-light"><h4>${shop[i].name}</h4>
         <h4>${shop[i].cost}</h4>
         <button class="btn btn-primary" onClick="add(${i})">Add</button><br/><br/></div>`
         if((Number(i)+1)%2==0){
