@@ -1,0 +1,51 @@
+<div class="text-center">
+  <div *ngIf="login">
+    <h2>Login</h2>
+    <button class="btn btn-warning" (click)="goToRegister()">Sign up</button>
+    <form #loginRef="ngForm">
+      Username:<input type="text" name="username" ngModel required><br>
+      Password:<input type="password" name="password" ngModel required><br>
+      <button type="submit" class="btn btn-primary" (click)="loginUser(loginRef)">Submit</button>
+      <button type="reset" class="btn btn-info">Clear</button>
+    </form>
+    {{msg}}<br>
+    {{stringafy}}
+  </div>
+  <div *ngIf="register">
+    <h2>Register</h2>
+    <button class="btn btn-warning" (click)="goToLogin()">Login</button>
+    <form #registerRef="ngForm">
+      First Name:<input type="text" name="fname" ngModel><br>
+      Last Name:<input type="text" name="lname" ngModel><br>
+      Username:<input type="text" name="username" ngModel><br>
+      Password:<input type="text" name="password" ngModel><br>
+      <button type=submit class="btn btn-primary" (click)="addUser(registerRef)">Submit</button>
+      <button type="reset" class="btn btn-info">Clear</button>
+    </form>
+    {{msg}}
+  </div>
+  <div *ngIf="view">
+    <h2>My Portfolio</h2>
+    Welcome {{name}}
+    <form #contactRef="ngForm">
+      Name:<input type="text" name="name" ngModel><br>
+      Phone Number:<input type="tel" name="phone" ngModel><br>
+      <button class="btn btn-primary" (click)="addContact(contactRef)">Submit</button>
+      <button type="reset" class="btn btn-info">clear</button>
+    </form>
+    <div class="row">
+      <div class="col-1"></div>
+    <table border="1" class="col-10">
+      <tr>
+        <th>Name</th>
+        <th>Phone Number</th>
+      </tr>
+      <tr *ngFor="let con of contacts">
+        <th>{{con.name}}</th>
+        <th>{{con.phone}}</th>
+      </tr>
+    </table>
+    <div class="col-1"></div>
+  </div>
+  </div>
+</div>
