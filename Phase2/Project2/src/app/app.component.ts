@@ -13,7 +13,6 @@ export class AppComponent {
   ])
   active?:User;
   contacts:Array<Contact>=[];
-  stringafy:string ="";
   name:any = "default"
 
   login:boolean = true;
@@ -39,7 +38,6 @@ export class AppComponent {
   loginUser(loginRef:NgForm){
     let attempt = loginRef.value;
     let fail ="Your user name or password was not recognised please try again or use the link above to sign up";
-    this.stringafy=""+this.credentials.has(""+attempt.username) + this.credentials.has("default");
     if(this.credentials.has(attempt.username)){
       let user = this.credentials.get(attempt.username);
       if(user?.password==attempt.password){
