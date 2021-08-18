@@ -1,0 +1,49 @@
+<div>
+  <div>
+    <h1>Task Tracker</h1>
+  </div>
+  <hr>
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+      <div>
+        <h3>New Task</h3>
+        <form #taskRef="ngForm" (ngSubmit)=addTask(taskRef)>
+          <mat-form-field appearance="fill">
+            <mat-label>Employee ID:</mat-label><input matInput type="number" name="id" ngModel required>
+          </mat-form-field><br>
+          <mat-form-field appearance="fill">
+            <mat-label>Employee Name:</mat-label><input matInput type="text" name="name" ngModel required>
+          </mat-form-field><br>
+          <mat-form-field appearance="fill">
+            <mat-label>Task Name:</mat-label><input matInput type="text" name="task" ngModel required>
+          </mat-form-field><br>
+          <mat-form-field appearance="fill">
+            <mat-label>Deadline:</mat-label><input matInput type="date" name="deadline" ngModel required>
+          </mat-form-field><br>
+          <input type="submit" mat-raised-button [disabled]="!taskRef.valid" value="Submit">
+          <input type="reset" mat-raised-button value="Reset">
+        </form>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile><div>
+      <div>
+        <h3>Current Task List</h3>
+      </div>
+      <table border="1">
+       <tr>
+         <th>ID</th>
+         <th>Name</th>
+         <th>Task</th>
+         <th>Deadline</th>
+       </tr>
+       <tr *ngFor="let task of tasks">
+           <th>{{task.id}}</th>
+           <th>{{task.name}}</th>
+           <th>{{task.task}}</th>
+           <th>{{task.deadline}}</th>
+        </tr>
+      </table>
+    </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
