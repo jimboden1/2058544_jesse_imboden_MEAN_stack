@@ -1,10 +1,47 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { stringify } from '@angular/compiler/src/util';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'Project4';
+export class AppComponent implements OnInit{
+  title = 'Quiz Time';
+
+  msg:string="";
+  
+  questions:any = [];
+  submited:boolean=false;
+
+  constructor(private httpClient:HttpClient){}
+  ngOnInit(){
+    this.httpClient.get("assets/questions.json").subscribe(data=>this.questions=data);
+  }
+
+  submitAnswers(testRef:NgForm){
+    this.submited=true;
+    let test = testRef.value;
+    let correctAnswers:number=0;
+    for(let q in this.questions){
+      if(test[q]==this.questions[q].correct){
+        correctAnswers++;
+      }
+    }
+    this.msg+="You got "+correctAnswers+" out of 2 correct"
+  }
+
+  classSelector(id:number,answer:string):any{
+    let result:any = "";
+    if(answer===this.questions[id].correct&&this.submited){
+      result=`correct`
+    }
+    else if(this.submited){
+      result="incorrect"
+    }
+    return result;
+  }
+
 }
