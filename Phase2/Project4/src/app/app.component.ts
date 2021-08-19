@@ -11,10 +11,12 @@ import { NgForm } from '@angular/forms';
 export class AppComponent implements OnInit{
   title = 'Quiz Time';
 
+  header:string="Quiz!"
+
   msg:string="";
   
   questions:any = [];
-  submited:boolean=false;
+  submited:boolean = false;
 
   constructor(private httpClient:HttpClient){}
   ngOnInit(){
@@ -25,12 +27,15 @@ export class AppComponent implements OnInit{
     this.submited=true;
     let test = testRef.value;
     let correctAnswers:number=0;
+    let size:number=0;
     for(let q in this.questions){
       if(test[q]==this.questions[q].correct){
         correctAnswers++;
       }
+      size++;
     }
-    this.msg+="You got "+correctAnswers+" out of 2 correct"
+    this.header="Review your Results"
+    this.msg="You got "+correctAnswers+" out of "+size+" correct"
   }
 
   classSelector(id:number,answer:string):any{

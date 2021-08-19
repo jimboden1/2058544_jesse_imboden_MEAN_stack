@@ -1,14 +1,15 @@
 <div>
-  <h2>Quiz Time</h2>
+  <h2>{{header}}</h2>
   <form #testRef="ngForm" (ngSubmit)="submitAnswers(testRef)">
-    <div *ngFor="let q of questions;">
-      <h3>{{q.question}}</h3>
-      <input type="radio" name="{{q.id}}" value={{q.answer1}} disabled="{{submited}}" ngModel><label [ngClass]="classSelector(q.id,q.answer1)">{{q.answer1}}</label><br>
-      <input type="radio" name="{{q.id}}" value={{q.answer2}} disabled="{{submited}}" ngModel><label [ngClass]="classSelector(q.id,q.answer2)">{{q.answer2}}</label><br>
-      <input type="radio" name="{{q.id}}" value={{q.answer3}} disabled="{{submited}}" ngModel><label [ngClass]="classSelector(q.id,q.answer3)">{{q.answer3}}</label><br>
-      <input type="radio" name="{{q.id}}" value={{q.answer4}} disabled="{{submited}}" ngModel><label [ngClass]="classSelector(q.id,q.answer4)">{{q.answer4}}</label><br>
+    <div *ngFor="let q of questions; let i = index">
+      <h3>Question {{i+1}}</h3>
+      <h4>{{q.question}}</h4>
+      <input type="radio" name="{{i}}" value={{q.answer1}} disabled="{{submited}}" ngModel><label [ngClass]="classSelector(i,q.answer1)">{{q.answer1}}</label><br>
+      <input type="radio" name="{{i}}" value={{q.answer2}} disabled="{{submited}}" ngModel><label [ngClass]="classSelector(i,q.answer2)">{{q.answer2}}</label><br>
+      <input type="radio" name="{{i}}" value={{q.answer3}} disabled="{{submited}}" ngModel><label [ngClass]="classSelector(i,q.answer3)">{{q.answer3}}</label><br>
+      <input type="radio" name="{{i}}" value={{q.answer4}} disabled="{{submited}}" ngModel><label [ngClass]="classSelector(i,q.answer4)">{{q.answer4}}</label><br>
     </div><br>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" *ngIf=!submited>
   </form>
   <br>
   <h3>{{msg}}</h3>
