@@ -1,5 +1,15 @@
 {
   "dependencies": {
     "readline-sync": "^1.4.10"
-  }
+  },
+  "name": "project1",
+  "version": "1.0.0",
+  "main": "project1.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
