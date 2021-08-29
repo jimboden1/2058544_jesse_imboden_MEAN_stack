@@ -9,14 +9,7 @@ try {
 } catch (error) {
     
 }
-let fill=`<table border="1">
-<tr>
-    <th>Employee Id</th>
-    <th>Task Id</th>
-    <th>Task Name</th>
-    <th>Deadline</th>
-</tr>
-</table>`;
+let fill=``;
 let indexPage = `
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +65,9 @@ let server = http.createServer((req,res)=> {
                 res.write("The Task Id you entered already exists, please enter a different Id");
             }
             else{
-                addTask(task);
+                tasks.push(task);
+                fs.writeFileSync("tasks.json",JSON.stringify(tasks));
+                res.write(indexPage);
                 res.write("The Task added Successfully");
             }
         }
@@ -82,6 +77,18 @@ let server = http.createServer((req,res)=> {
             res.write(fill);
         }
         else if(urlInfo.pathname == "/deleteTask"){
+            let task = urlInfo.query;
+            let result = tasks.findIndex(t=>t.id==task.deleteId);
+            if( result!=-1){
+                tasks.splice(result,1);
+                fs.writeFileSync("tasks.json",JSON.stringify(tasks));
+                res.write(indexPage);
+                res.write("Task deleted!");
+            }
+            else{
+                res.write(indexPage);
+                res.write("Task not found.");
+            }
         }
         else{
             res.write(indexPage);
@@ -91,21 +98,30 @@ let server = http.createServer((req,res)=> {
         res.write(indexPage);
     }
 
+    res.end();
 })
 
 function deleteTask(){
 }
 
-function addTask(task){
-    tasks.push(task.toString());
-    fs.writeFileSync("tasks.json",JSON.stringify(tasks));
-}
-
 function renderTasks(){
-    fill +=`
-    <p>It Works!</p>
-    `
-    console.log("add Line")
+    fill =`<table border="1">
+    <tr>
+        <th>Employee Id</th>
+        <th>Task Id</th>
+        <th>Task Name</th>
+        <th>Deadline</th>
+    </tr>`
+    for(let task of tasks){
+        fill+=`
+        <tr>
+            <th>${task.eid}</th>
+            <th>${task.id}</th>
+            <th>${task.name}</th>
+            <th>${task.deadline}</th>
+        </tr>`
+    }
+    fill+=`</table>`
 }
 
 server.listen(9090,()=>console.log("Server running on port number 9090"))
