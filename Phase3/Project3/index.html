@@ -10,14 +10,15 @@
         var socket = io();
         function send() {
             output = document.getElementById("send").value
-            socket.emit("obj",output);
-            document.getElementById("send").innerHTML="";
-            document.getElementById("msg").innerHTML+="<p>You: "+ output + "</p>";
+            socket.emit("req",output);
+            document.getElementById("send").value="";
+            document.getElementById("msg").innerHTML+="You: "+ output + "</p>";
+            document.getElementById("msg").scrollTop = document.getElementById("msg").scrollHight;
         }
-        socket.emit("obj","Hello Server");
-        socket.on("obj1",(msg)=> {
-            console.log(msg);
+        socket.emit("req","Hello Server");
+        socket.on("res",(msg)=> {
             document.getElementById("msg").innerHTML+="<p>ChatBot: "+ msg + "</p>";
+            document.getElementById("msg").scrollTop = document.getElementById("msg").scrollHight;
         })
     </script>
 </head>
