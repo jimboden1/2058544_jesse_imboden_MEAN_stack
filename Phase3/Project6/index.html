@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatting with Socket IO</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/JavaScript">
+        var socket = io();
+        function send() {
+            output = {name:document.getElementById("name").value,message:document.getElementById("send").value}
+            socket.emit("req",output);
+            document.getElementById("send").value="";
+        }
+        socket.on("res",(msg)=> {
+            document.getElementById("msg").innerHTML+="<p>"+ msg + "</p>";
+        })
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Chatlog</legend>
+        <fieldset>
+            <legend>Name</legend>
+            <input type="text" id="name">
+        </fieldset>
+        <fieldset>
+            <legend>Message</legend>
+            <textarea id="send" style="width: 1446px; height: 70px;resize: none"></textarea>
+        </fieldset>
+    </fieldset><br>
+    <button onclick="send()">Send</button>
+    <div id="msg">
+    </div>
+</body>
+</html>
